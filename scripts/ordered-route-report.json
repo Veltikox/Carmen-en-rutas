@@ -1,0 +1,161 @@
+{
+  "1": {
+    "name": "Ruta Costera",
+    "sequence": [
+      "Calle 22",
+      "Calle 47",
+      "Calle 26",
+      "Playa Norte",
+      "Malecón Costero",
+      "P. del Mar",
+      "Av. Amado Nervo",
+      "Av. Nardos",
+      "Av. Constelación"
+    ],
+    "start": [
+      18.6406111,
+      -91.8377953
+    ],
+    "final": [
+      18.6673287,
+      -91.7890642
+    ],
+    "closed": false,
+    "lengthMeters": 9760,
+    "vertices": 168,
+    "junctionConnections": [
+      {
+        "after": "Playa Norte",
+        "before": "Malecón Costero",
+        "meters": 70,
+        "via": [
+          "Avenida del Mar"
+        ]
+      }
+    ],
+    "additionalNamedRoadMeters": {},
+    "source": "User-specified order, 2026-10-15; OSM names and alt_name; approximate locations for marked landmarks."
+  },
+  "2": {
+    "name": "Ruta Laguna de Términos",
+    "sequence": [
+      "Paradero Mercado AFA",
+      "Malecón del Centro",
+      "Calle 25",
+      "Calle 24",
+      "Monumento a la Bandera",
+      "Calle 28 x 17",
+      "Parque del Pescador",
+      "Avenida 10 de Julio",
+      "Calle 40",
+      "Calle Independencia",
+      "Calle Constitución",
+      "Vicente Guerrero",
+      "Balneario de la Manigua",
+      "Av. 16 de Septiembre",
+      "Calle Satélite",
+      "Miguel de la Madrid",
+      "Calle Albatros",
+      "Calle Tijerilla",
+      "Francisco Javier Mina",
+      "Capilla San Judas Tadeo",
+      "Calle 17-D",
+      "Av. 10 de Julio",
+      "Calle 16 de Septiembre",
+      "Av. Las Américas",
+      "C. José María Morelos y Pavón",
+      "Calle 19",
+      "Calle 42",
+      "Calle 31",
+      "Calle 22",
+      "Calle 39"
+    ],
+    "start": [
+      18.6401304,
+      -91.8385792
+    ],
+    "final": [
+      18.6429946,
+      -91.8337458
+    ],
+    "closed": false,
+    "lengthMeters": 14281,
+    "vertices": 269,
+    "junctionConnections": [
+      {
+        "after": "Calle Albatros",
+        "before": "Calle Tijerilla",
+        "meters": 49,
+        "via": [
+          "Calle Miguel de la Madrid"
+        ]
+      },
+      {
+        "after": "Calle Tijerilla",
+        "before": "Francisco Javier Mina",
+        "meters": 384,
+        "via": [
+          "Calle Miguel de la Madrid"
+        ]
+      },
+      {
+        "after": "Calle 42",
+        "before": "Calle 31",
+        "meters": 18,
+        "via": [
+          "Avenida Aviación"
+        ]
+      }
+    ],
+    "additionalNamedRoadMeters": {
+      "Calle 28": 15,
+      "13": 181,
+      "Calle 13": 329
+    },
+    "source": "User-specified order, 2026-10-15; OSM names and alt_name; approximate locations for marked landmarks."
+  },
+  "3": {
+    "name": "Ruta Campus III",
+    "sequence": [
+      "Calle 31",
+      "Periférica Norte",
+      "Av. Concordia",
+      "Av. Corregidora",
+      "Calle 37",
+      "Boquerón del Palmar",
+      "Carretera Carmen–Puerto Real",
+      "Calle Escárcega",
+      "Av. Puerto de Campeche",
+      "Av. Abasolo",
+      "Av. Contadores",
+      "Av. Central",
+      "Campus III"
+    ],
+    "start": [
+      18.6451015,
+      -91.8184745
+    ],
+    "final": [
+      18.6559225,
+      -91.7679685
+    ],
+    "closed": false,
+    "lengthMeters": 12590,
+    "vertices": 222,
+    "junctionConnections": [
+      {
+        "after": "Calle Escárcega",
+        "before": "Av. Puerto de Campeche",
+        "meters": 466,
+        "via": [
+          "Avenida Isla de Tris",
+          "Conector sin nombre en OSM"
+        ]
+      }
+    ],
+    "additionalNamedRoadMeters": {
+      "Calle Emiliano Zapata": 25
+    },
+    "source": "User-specified order, 2026-10-15; OSM names and alt_name; approximate locations for marked landmarks."
+  }
+}

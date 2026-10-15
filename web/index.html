@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123d32">
+  <meta name="description" content="Amor X Carmen: un prototipo para moverte con más confianza en Ciudad del Carmen. Explora Costera, Laguna de Términos y Campus III, en el orden de calles indicado, desde su inicio hasta su parada final, con ubicación compartida de camiones y simulación de prueba.">
+  <title>Amor X Carmen — Tu próximo viaje, más cerca</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="real-map.css">
+</head>
+<body>
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="4"/><path d="M5 12h14M8 19v2m8-2v2M9 7h6"/><circle cx="8.5" cy="15.5" r=".6"/><circle cx="15.5" cy="15.5" r=".6"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 5h7a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 7h16m-4-4 4 4-4 4M20 17H4m4-4-4 4 4 4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.5"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</defs></svg>
+<header class="site-header">
+  <a href="./" class="brand" aria-label="Amor X Carmen, inicio"><span class="brand-icon"><svg class="icon"><use href="#i-bus"/></svg></span><span>amor<span class="brand-x">×</span>carmen<span class="brand-caption">NOS MUEVE ESTAR CERCA</span></span></a>
+  <nav class="desktop-nav" aria-label="Navegación principal"><button class="nav-item active" data-action="explore"><svg class="icon"><use href="#i-route"/></svg>Explorar rutas</button><button class="nav-item" data-action="favorites"><svg class="icon"><use href="#i-star"/></svg>Mis paradas <span id="favorites-count" hidden>0</span></button><button class="nav-item" data-action="about">El proyecto</button></nav>
+  <div class="header-location"><svg class="icon"><use href="#i-pin"/></svg><span>Ciudad del Carmen<small>CAMPECHE, MÉXICO</small></span></div>
+  <button class="mobile-menu icon-button" data-action="favorites" aria-label="Abrir mis paradas"><svg class="icon"><use href="#i-star"/></svg></button>
+</header>
+<main>
+  <section class="intro" aria-labelledby="page-title"><div><div class="eyebrow"><span class="tiny-dot"></span> EL CAMINO TAMBIÉN SE DISFRUTA</div><h1 id="page-title">Tu próximo viaje,<br><span>más cerca.</span></h1></div><div class="intro-right"><p>Menos tiempo esperando.<br>Más tiempo para lo que te mueve.</p><div class="demo-badge"><span></span> PROTOTIPO INTERACTIVO <button data-action="about" aria-label="Acerca de los datos de demostración"><svg class="icon"><use href="#i-info"/></svg></button></div></div></section>
+  <section class="travel-workspace" aria-label="Explorador de rutas">
+    <aside class="route-panel">
+      <div class="panel-heading"><h2>Planea tu viaje</h2><span class="available-badge">3 rutas</span></div>
+      <div class="fleet-mode-field"><label for="data-mode">UBICACIÓN DE LOS CAMIONES</label><select id="data-mode"><option value="live">GPS de conductores</option><option value="demo">Simulación de prueba</option></select><div><button id="open-driver">Soy conductor</button><button id="center-live-buses" hidden>Ver unidades GPS</button></div><p id="fleet-summary" role="status">Consultando unidades con GPS…</p></div>
+      <label class="field-label" for="route-select">¿QUÉ RUTA VAS A TOMAR?</label>
+      <div class="route-select-wrap"><span id="route-number" class="route-number">01</span><div class="route-select-label"><select id="route-select"><option value="1">Ruta Costera</option><option value="2">Ruta Laguna de Términos</option><option value="3">Ruta Campus III</option></select><span id="route-subtitle">Inicio: Calle 22</span></div><svg class="icon select-chevron"><use href="#i-down"/></svg></div>
+      <div class="route-meta"><span><svg class="icon"><use href="#i-pin"/></svg><span id="route-point-count">12</span> puntos</span><span><svg class="icon"><use href="#i-bus"/></svg><span id="unit-count">0</span> <span id="unit-type">unidades GPS</span></span></div>
+      <div class="route-reference-actions"><button id="view-reference">Ver imagen y calles <svg class="icon"><use href="#i-info"/></svg></button><label><input type="checkbox" id="show-all-routes"> Ver las 3 rutas</label></div>
+      <div class="route-endpoints"><span><small>INICIO</small><b id="route-origin">Calle 22</b></span><svg class="icon"><use href="#i-arrow"/></svg><span><small>PARADA FINAL</small><b id="route-destination">Av. Constelación</b></span></div><div class="direction-row"><span>Simulación de inicio a final</span><button id="direction-button" aria-label="Reiniciar simulación"><svg class="icon"><use href="#i-clock"/></svg><span id="direction-label">Reiniciar demo</span></button></div>
+      <div class="stop-field-heading"><label class="field-label" for="stop-select">PUNTO DE CONSULTA</label><button class="text-button" id="pick-map">Elegir en el mapa <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+      <div class="stop-select-wrap"><svg class="icon"><use href="#i-pin"/></svg><select id="stop-select" aria-label="Selecciona un punto del recorrido"></select><svg class="icon select-chevron"><use href="#i-down"/></svg></div>
+      <section class="location-card" aria-label="Tu ubicación">
+        <button id="locate-user" class="location-button"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg><span id="locate-label">Usar mi ubicación</span></button>
+        <p id="location-status" class="location-status" role="status" aria-live="polite">Permite el acceso para ver dónde estás y encontrar una referencia cercana en esta ruta.</p>
+        <div id="location-details" hidden><p id="location-accuracy"></p><p id="location-nearest"></p><button id="select-nearest-point" class="location-nearest-button">Calcular ETA en este punto</button></div>
+        <div class="location-actions"><button id="center-user" hidden>Centrar en mí</button><button id="clear-location" hidden>Quitar ubicación</button></div>
+        <p class="location-privacy">Tu posición se usa durante esta visita y no se guarda. Al mostrarla, el mapa carga la cartografía de esa zona.</p>
+      </section>
+      <div class="arrival-card live-eta"><div class="arrival-heading"><span class="status-dot"></span> PRÓXIMA LLEGADA <span class="simulation-label" id="arrival-source">GPS</span></div><div class="arrival-value"><strong id="eta">—</strong><span>min<span>estimación pendiente</span></span><span class="arrival-bus"><svg class="icon"><use href="#i-bus"/></svg></span></div><div class="arrival-footer"><span id="next-bus">Consultando unidades</span><span id="arrival-stop">Punto de consulta <svg class="icon"><use href="#i-arrow"/></svg></span></div><div id="eta-context" class="eta-context"><p id="eta-target">Usa tu ubicación o elige un punto para calcular la llegada.</p><p id="eta-explanation" role="status">Esperando datos GPS de los conductores…</p></div></div>
+      <div class="save-share-row"><button id="save-stop" class="save-button" aria-pressed="false"><svg class="icon"><use href="#i-star"/></svg><span>Guardar punto</span></button><button id="share-route" class="icon-button" aria-label="Copiar enlace a esta ruta y parada"><svg class="icon"><use href="#i-share"/></svg></button></div>
+      <details class="stop-details"><summary><span>Puntos del recorrido <small id="points-list-count">12</small></span><svg class="icon"><use href="#i-down"/></svg></summary><div id="stop-list" class="stop-list"></div></details>
+      <div class="sidebar-note"><svg class="icon"><use href="#i-info"/></svg><p id="route-notice">Recorridos según el orden de calles proporcionado. Camiones y tiempos simulados.</p></div>
+    </aside>
+    <div class="map-panel" id="map-panel">
+      <div class="map-topbar"><div class="map-view-switch" aria-label="Tipo de vista"><button id="view-map" class="active" aria-pressed="true">Mapa real</button><button id="view-scheme" aria-pressed="false">Esquema</button></div><span id="live-status" class="live-status">Consultando GPS…</span><button id="pause-simulation" class="simulation-control" aria-pressed="false" hidden><span class="status-dot"></span><span id="simulation-text">Simulación activa</span><span id="pause-icon" aria-hidden="true">Ⅱ</span></button></div>
+      <div id="map-service-status" class="map-service-status" role="status"><span id="map-service-message">Cargando mapa de Ciudad del Carmen…</span><button id="retry-map" hidden>Reintentar</button></div>
+      <div class="map-viewport" id="map-viewport">
+        <div id="real-map" aria-label="Mapa real de Ciudad del Carmen con rutas reconstruidas a partir de imágenes y camiones simulados"></div>
+        <svg id="city-map" viewBox="0 0 1000 740" role="group" aria-label="Esquema del recorrido. Selecciona un punto para ver la llegada simulada." hidden>
+          <defs><pattern id="city-blocks" width="110" height="92" patternUnits="userSpaceOnUse" patternTransform="rotate(-15 500 370)"><rect x="9" y="9" width="91" height="73" rx="7" fill="#e0e6dc"/><rect x="15" y="15" width="35" height="28" rx="3" fill="#e8ece4"/><rect x="56" y="15" width="37" height="60" rx="3" fill="#e8ece4"/><rect x="15" y="49" width="35" height="26" rx="3" fill="#e8ece4"/></pattern><filter id="marker-shadow" x="-100%" y="-100%" width="300%" height="300%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#254936" flood-opacity=".2"/></filter><pattern id="water-lines" width="55" height="36" patternUnits="userSpaceOnUse"><path d="M5 18q9-6 18 0t18 0" fill="none" stroke="#b7d3d3" stroke-width="1.2" opacity=".6"/></pattern></defs>
+          <g id="map-transform">
+            <g class="geography" hidden></g>
+            <g class="schematic-grid" hidden><rect x="-600" y="-600" width="2200" height="1940" fill="#edf1ec"/><path d="M0 100H1000M0 200H1000M0 300H1000M0 400H1000M0 500H1000M0 600H1000M100 0V740M200 0V740M300 0V740M400 0V740M500 0V740M600 0V740M700 0V740M800 0V740M900 0V740" stroke="#dce4db" fill="none" stroke-dasharray="2 8"/></g>
+            <g id="route-lines"></g><g id="map-stops"></g><g id="map-buses"></g><g id="selected-stop-label"></g>
+          </g>
+        </svg>
+      </div>
+      <div id="map-pick-notice" class="map-pick-notice" hidden>Toca un círculo de la ruta para elegir un punto de consulta.</div>
+      <div class="map-compass" aria-hidden="true"><span>N</span><svg viewBox="0 0 24 30"><path d="m12 4 7 22-7-5-7 5Z" fill="#36584c"/><path d="M12 4v17l-7 5Z" fill="#a2b2a5"/></svg></div>
+      <div class="map-controls"><button id="zoom-in" aria-label="Acercar mapa">+</button><button id="zoom-out" aria-label="Alejar mapa">−</button><button id="recenter" aria-label="Centrar recorrido"><svg class="icon"><use href="#i-target"/></svg></button></div>
+      <div class="map-bottom-card"><div class="map-legend route-map-legend" id="map-route-legend" aria-label="Colores de las rutas"></div><span class="demo-speed">Tiempo demo ×10</span></div>
+      <div class="map-attribution" id="map-description">Cartografía real · Trazados de referencia</div>
+      <div class="map-route-stamp" id="map-route-stamp" hidden><span id="map-route-id">R01</span><span>UN CAMINO,<br>MUCHAS HISTORIAS.</span></div>
+    </div>
+  </section>
+  <section class="how-it-works" aria-label="Cómo funciona"><div class="how-intro"><span class="eyebrow">ASÍ DE FÁCIL</span><h2>Muévete a tu ritmo.</h2></div><div class="how-step"><span>01</span><div><h3>Encuentra tu ruta</h3><p>Costera, Laguna de Términos y Campus III.</p></div></div><div class="how-step"><span>02</span><div><h3>Guarda tu punto de consulta</h3><p>Vuelve a tu punto del recorrido en un toque.</p></div></div><div class="how-step"><span>03</span><div><h3>Consulta las unidades</h3><p>Elige GPS de conductores o simulación.</p></div></div></section>
+  <footer><a class="footer-brand" href="./">amor<span>×</span>carmen</a><p>Hecho para una ciudad que no deja de moverse.</p><button data-action="about">Conoce el proyecto <svg class="icon"><use href="#i-arrow"/></svg></button></footer>
+</main>
+<dialog id="favorites-dialog" class="modal"><div class="modal-top"><span class="eyebrow">TUS VIAJES DE TODOS LOS DÍAS</span><button class="icon-button close-modal" aria-label="Cerrar mis paradas"><svg class="icon"><use href="#i-close"/></svg></button></div><h2>Mis paradas</h2><p class="modal-description">Un atajo a los lugares donde empieza tu camino.</p><div id="favorites-list"></div><p class="local-note">Tus paradas se guardan solo en este navegador.</p></dialog>
+<dialog id="about-dialog" class="modal about-modal"><div class="modal-top"><span class="eyebrow">PENSADO EN CIUDAD DEL CARMEN</span><button class="icon-button close-modal" aria-label="Cerrar información del proyecto"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="about-brand"><svg class="icon"><use href="#i-bus"/></svg></div><h2>Que esperar el camión<br>deje de ser una duda.</h2><p class="modal-description">Amor X Carmen es una propuesta para acercar la información del transporte a las personas.</p><div class="about-demo"><strong>Tres rutas, tres colores</strong><p>Costera, Laguna de Términos y Campus III. Sus recorridos siguen el orden de calles proporcionado: desde el inicio hasta la parada final, sin cerrar el trazado automáticamente. Puedes consultar las imágenes desde cada ruta.</p></div><div class="about-demo muted"><strong>Qué está verificado y qué está simulado</strong><p>Se usan calles e intersecciones conectadas de OpenStreetMap y sus nombres alternativos. La continuación de Calle 37 que falta en esa cartografía se muestra punteada como referencia pendiente de validación GPS. Laguna de Términos distingue los 11 paraderos indicados y las 19 calles de tránsito. Las posiciones de los paraderos siguen siendo aproximadas. El modo GPS muestra las posiciones compartidas por conductores autorizados, con hora y precisión. Las lecturas se señalan como desactualizadas a los 30 segundos y se ocultan a los 90 segundos. El modo Simulación usa posiciones y tiempos ficticios a velocidad ×10. El ETA GPS usa el avance por el recorrido y la velocidad reciente hasta el punto seleccionado; se muestra como aproximado. No incluye caminatas, tráfico en vivo ni predicción de esperas en paraderos. Si faltan datos fiables, se indica el motivo. Las unidades de la demo se detienen al llegar al final. El botón Reiniciar demo comienza otra reproducción.</p></div><p class="local-note">Este prototipo independiente no acredita la vigencia del servicio ni los sentidos de circulación. La cartografía requiere conexión a internet.</p><button class="primary-button close-modal">Explorar las rutas <svg class="icon"><use href="#i-arrow"/></svg></button></dialog>
+<dialog id="reference-dialog" class="modal reference-modal"><div class="modal-top"><div><span class="eyebrow">IMAGEN PROPORCIONADA</span><h2 id="reference-title">Ruta Costera</h2></div><button class="icon-button close-modal" aria-label="Cerrar imagen de referencia"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="modal-description">Referencia utilizada para reconstruir el trazado. El orden de paraderos y calles sigue la lista que proporcionaste después de estas imágenes. La posición de las paradas es de referencia.</p><div id="reference-streets" class="reference-streets"></div><img id="reference-image" alt="Cartel de referencia de la ruta" loading="lazy"></dialog>
+<dialog id="driver-dialog" class="modal driver-modal"><div class="modal-top"><span class="eyebrow">MODO CONDUCTOR</span><button class="icon-button close-modal" aria-label="Cerrar modo conductor"><svg class="icon"><use href="#i-close"/></svg></button></div><h2>Comparte la ubicación<br>de tu camión.</h2><p class="modal-description">Al iniciar, la posición de este teléfono se mostrará como la ubicación de la unidad a las personas con acceso al sitio.</p><p id="driver-access" class="driver-access">Comprobando acceso de conductor…</p><a id="driver-signin" href="/signin-with-chatgpt?return_to=%2F%3Fconductor%3D1" target="_top" hidden>Iniciar sesión</a><div class="driver-fields"><label>Ruta<select id="driver-route"><option value="1">Costera</option><option value="2">Laguna de Términos</option><option value="3">Campus III</option></select></label><label>Unidad<select id="driver-unit"><option value="1">Unidad 01</option><option value="2">Unidad 02</option><option value="3">Unidad 03</option></select></label></div><button id="driver-start" class="primary-button" disabled>Iniciar transmisión GPS</button><button id="driver-stop" class="driver-stop" hidden>Finalizar transmisión</button><p id="driver-status" class="driver-status" role="status" aria-live="polite">Elige la ruta y la unidad que vas a conducir.</p><p id="driver-last-fix" class="local-note"></p><p class="local-note">Mantén esta página abierta y la pantalla encendida. Al bloquear el teléfono o dejar la página, el navegador puede suspender el GPS. Finalizar deja de compartir; si se pierde la conexión, la posición caduca a los 90 segundos. Solo se conserva la última posición, sin historial.</p></dialog>
+<div id="toast" class="toast" role="status" hidden><svg class="icon"><use href="#i-check"/></svg><span></span></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

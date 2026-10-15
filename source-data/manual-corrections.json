@@ -1,0 +1,34 @@
+{
+  "campus-calle-37-continuation": {
+    "name": "Calle 37",
+    "reason": "El cartel aportado y la lista del usuario indican continuidad hacia Boquerón del Palmar por la ribera sur. Esa continuación no está conectada en la red OSM disponible. Evita el desvío automático por Periférica Norte y la ribera opuesta.",
+    "source": "references/ruta-campus-iii.jpeg + orden de calles aportado por el usuario",
+    "status": "approximate-reference-trace-needs-gps-verification",
+    "path": [
+      [
+        18.6604752,
+        -91.8102011
+      ],
+      [
+        18.66084,
+        -91.80899
+      ],
+      [
+        18.66121,
+        -91.80769
+      ],
+      [
+        18.66156,
+        -91.80639
+      ],
+      [
+        18.66191,
+        -91.80505
+      ],
+      [
+        18.662114,
+        -91.8034572
+      ]
+    ]
+  }
+}

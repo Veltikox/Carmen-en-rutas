@@ -1,0 +1,708 @@
+{
+  "1": {
+    "name": "Ruta Costera",
+    "shortName": "Costera",
+    "color": "#ca3d83",
+    "soft": "#f9e7f0",
+    "origin": "Calle 22",
+    "destination": "Av. Constelación",
+    "image": "references/ruta-costera.jpeg",
+    "minutes": 35,
+    "start": [
+      18.6401,
+      -91.838
+    ],
+    "end": [
+      18.66735,
+      -91.78906
+    ],
+    "steps": [
+      {
+        "name": "Calle 22",
+        "match": [
+          "Calle 22"
+        ],
+        "anchor": [
+          18.643,
+          -91.8395
+        ],
+        "radius": 900
+      },
+      {
+        "name": "Calle 47",
+        "match": [
+          "Avenida Páez Urquidi",
+          "47"
+        ],
+        "anchor": [
+          18.6455,
+          -91.8395
+        ],
+        "radius": 800
+      },
+      {
+        "name": "Calle 26",
+        "match": [
+          "Calle 26",
+          "Avenida Adolfo López Mateos"
+        ],
+        "anchor": [
+          18.654,
+          -91.841
+        ],
+        "radius": 1600,
+        "note": "La continuación norte del corredor figura como Adolfo López Mateos en OSM."
+      },
+      {
+        "name": "Playa Norte",
+        "match": [
+          "Avenida del Mar"
+        ],
+        "anchor": [
+          18.662,
+          -91.837
+        ],
+        "radius": 700
+      },
+      {
+        "name": "Malecón Costero",
+        "match": [
+          "Malecón Costero",
+          "Avenida Paseo del Mar"
+        ],
+        "anchor": [
+          18.664,
+          -91.817
+        ],
+        "radius": 1300
+      },
+      {
+        "name": "P. del Mar",
+        "match": [
+          "Avenida Paseo del Mar"
+        ],
+        "anchor": [
+          18.666,
+          -91.802
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Av. Amado Nervo",
+        "match": [
+          "Calle Amado Nervo"
+        ],
+        "anchor": [
+          18.663,
+          -91.794
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Av. Nardos",
+        "match": [
+          "Avenida Nardos"
+        ],
+        "anchor": [
+          18.6615,
+          -91.7885
+        ],
+        "radius": 500
+      },
+      {
+        "name": "Av. Constelación",
+        "match": [
+          "Calle Constelación Pléyades"
+        ],
+        "anchor": [
+          18.665,
+          -91.7875
+        ],
+        "radius": 700
+      }
+    ]
+  },
+  "2": {
+    "name": "Ruta Laguna de Términos",
+    "shortName": "Laguna de Términos",
+    "color": "#188574",
+    "soft": "#e3f3ed",
+    "origin": "Paradero Mercado AFA",
+    "destination": "Calle 39",
+    "image": "references/ruta-laguna-de-terminos.jpeg",
+    "minutes": 50,
+    "start": [
+      18.64007,
+      -91.83857
+    ],
+    "end": [
+      18.64299,
+      -91.83375
+    ],
+    "steps": [
+      {
+        "name": "Paradero Mercado AFA",
+        "kind": "paradero",
+        "point": [
+          18.64007,
+          -91.83857
+        ],
+        "match": [
+          "Calle 22"
+        ],
+        "anchor": [
+          18.64007,
+          -91.83857
+        ],
+        "radius": 100
+      },
+      {
+        "name": "Malecón del Centro",
+        "kind": "paradero",
+        "match": [
+          "Calle 20",
+          "Malecon"
+        ],
+        "anchor": [
+          18.6367,
+          -91.836
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Calle 25",
+        "kind": "paradero",
+        "match": [
+          "Calle 25"
+        ],
+        "anchor": [
+          18.635,
+          -91.8332
+        ],
+        "radius": 450
+      },
+      {
+        "name": "Calle 24",
+        "kind": "paradero",
+        "match": [
+          "Calle 24"
+        ],
+        "anchor": [
+          18.6352,
+          -91.8325
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Monumento a la Bandera",
+        "kind": "paradero",
+        "point": [
+          18.63449,
+          -91.83165
+        ],
+        "match": [
+          "Calle 28"
+        ],
+        "anchor": [
+          18.63449,
+          -91.83165
+        ],
+        "radius": 120
+      },
+      {
+        "name": "Calle 28 x 17",
+        "kind": "paradero",
+        "point": [
+          18.6330318,
+          -91.8304911
+        ],
+        "match": [
+          "Calle 28",
+          "Calle 17"
+        ],
+        "anchor": [
+          18.6330318,
+          -91.8304911
+        ],
+        "radius": 100
+      },
+      {
+        "name": "Parque del Pescador",
+        "kind": "paradero",
+        "point": [
+          18.6305,
+          -91.8262
+        ],
+        "anchor": [
+          18.6305,
+          -91.8262
+        ],
+        "radius": 100,
+        "approximate": true
+      },
+      {
+        "name": "Avenida 10 de Julio",
+        "kind": "paradero",
+        "match": [
+          "Avenida 10 de Julio",
+          "Avenida Luis D. Colosio"
+        ],
+        "anchor": [
+          18.6339,
+          -91.8244
+        ],
+        "radius": 850
+      },
+      {
+        "name": "Calle 40",
+        "kind": "paradero",
+        "match": [
+          "Calle 40"
+        ],
+        "anchor": [
+          18.6368,
+          -91.821
+        ],
+        "radius": 450
+      },
+      {
+        "name": "Calle Independencia",
+        "kind": "paradero",
+        "match": [
+          "Calle Independencia"
+        ],
+        "anchor": [
+          18.634,
+          -91.8207
+        ],
+        "radius": 500
+      },
+      {
+        "name": "Calle Constitución",
+        "kind": "paradero",
+        "match": [
+          "Calle Constitución"
+        ],
+        "anchor": [
+          18.6322,
+          -91.8197
+        ],
+        "radius": 250
+      },
+      {
+        "name": "Vicente Guerrero",
+        "match": [
+          "Calle Vicente Guerrero",
+          "5 de Mayo"
+        ],
+        "anchor": [
+          18.6304,
+          -91.8197
+        ],
+        "radius": 350
+      },
+      {
+        "name": "Balneario de la Manigua",
+        "point": [
+          18.6290294,
+          -91.8196526
+        ],
+        "match": [
+          "Calle 16 de Septiembre"
+        ],
+        "anchor": [
+          18.6291,
+          -91.8197
+        ],
+        "radius": 100
+      },
+      {
+        "name": "Av. 16 de Septiembre",
+        "match": [
+          "Calle 16 de Septiembre"
+        ],
+        "anchor": [
+          18.634,
+          -91.8164
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Calle Satélite",
+        "match": [
+          "Calle Satélite"
+        ],
+        "anchor": [
+          18.6375,
+          -91.8125
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Miguel de la Madrid",
+        "match": [
+          "Calle Miguel de la Madrid"
+        ],
+        "anchor": [
+          18.63735,
+          -91.808
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Calle Albatros",
+        "match": [
+          "Calle Albatros"
+        ],
+        "anchor": [
+          18.6369,
+          -91.8058
+        ],
+        "radius": 130
+      },
+      {
+        "name": "Calle Tijerilla",
+        "match": [
+          "Calle Tijeriya",
+          "Calle Tijerilla"
+        ],
+        "anchor": [
+          18.6369,
+          -91.8053
+        ],
+        "radius": 150
+      },
+      {
+        "name": "Francisco Javier Mina",
+        "match": [
+          "Calle Francisco Javier Mina",
+          "Calle 17-E"
+        ],
+        "anchor": [
+          18.6392,
+          -91.8092
+        ],
+        "radius": 400
+      },
+      {
+        "name": "Capilla San Judas Tadeo",
+        "point": [
+          18.6402,
+          -91.8108
+        ],
+        "match": [
+          "Prolongación 17-D"
+        ],
+        "anchor": [
+          18.6402,
+          -91.8108
+        ],
+        "radius": 100,
+        "approximate": true
+      },
+      {
+        "name": "Calle 17-D",
+        "match": [
+          "17D",
+          "Prolongación 17-D"
+        ],
+        "anchor": [
+          18.6412,
+          -91.813
+        ],
+        "radius": 350
+      },
+      {
+        "name": "Av. 10 de Julio",
+        "match": [
+          "Avenida 10 de Julio",
+          "Avenida Luis D. Colosio"
+        ],
+        "anchor": [
+          18.6437,
+          -91.808
+        ],
+        "radius": 750
+      },
+      {
+        "name": "Calle 16 de Septiembre",
+        "match": [
+          "Calle 16 de Septiembre"
+        ],
+        "anchor": [
+          18.6446,
+          -91.8034
+        ],
+        "radius": 250
+      },
+      {
+        "name": "Av. Las Américas",
+        "match": [
+          "Calle Las Américas"
+        ],
+        "anchor": [
+          18.6467,
+          -91.8055
+        ],
+        "radius": 550
+      },
+      {
+        "name": "C. José María Morelos y Pavón",
+        "match": [
+          "Calle José María Morelos y Pavón"
+        ],
+        "anchor": [
+          18.6465,
+          -91.8088
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Calle 19",
+        "match": [
+          "Calle 19"
+        ],
+        "anchor": [
+          18.642,
+          -91.8195
+        ],
+        "radius": 1300
+      },
+      {
+        "name": "Calle 42",
+        "match": [
+          "Calle 42"
+        ],
+        "anchor": [
+          18.6405,
+          -91.8255
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Calle 31",
+        "match": [
+          "Calle 31",
+          "31"
+        ],
+        "anchor": [
+          18.639,
+          -91.832
+        ],
+        "radius": 750
+      },
+      {
+        "name": "Calle 22",
+        "match": [
+          "Calle 22"
+        ],
+        "anchor": [
+          18.639,
+          -91.8375
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Calle 39",
+        "match": [
+          "Calle 39"
+        ],
+        "anchor": [
+          18.6418,
+          -91.8355
+        ],
+        "radius": 600
+      }
+    ]
+  },
+  "3": {
+    "name": "Ruta Campus III",
+    "shortName": "Campus III",
+    "color": "#4e65cf",
+    "soft": "#e9ecfc",
+    "origin": "Calle 31",
+    "destination": "Campus III",
+    "image": "references/ruta-campus-iii.jpeg",
+    "minutes": 40,
+    "start": [
+      18.6452,
+      -91.8184
+    ],
+    "end": [
+      18.655922,
+      -91.767936
+    ],
+    "steps": [
+      {
+        "name": "Calle 31",
+        "match": [
+          "Calle 31",
+          "31",
+          "Avenida Aviación"
+        ],
+        "anchor": [
+          18.6465,
+          -91.815
+        ],
+        "radius": 1000
+      },
+      {
+        "name": "Periférica Norte",
+        "match": [
+          "Avenida Periférica Norte"
+        ],
+        "anchor": [
+          18.6488,
+          -91.8125
+        ],
+        "radius": 500
+      },
+      {
+        "name": "Av. Concordia",
+        "match": [
+          "Avenida Concordia"
+        ],
+        "anchor": [
+          18.6505,
+          -91.81
+        ],
+        "radius": 650
+      },
+      {
+        "name": "Av. Corregidora",
+        "match": [
+          "Avenida Corregidora"
+        ],
+        "anchor": [
+          18.655,
+          -91.8105
+        ],
+        "radius": 900
+      },
+      {
+        "name": "Calle 37",
+        "match": [
+          "Calle 37",
+          "Avenida Malecón de la Caleta"
+        ],
+        "anchor": [
+          18.6605,
+          -91.8085
+        ],
+        "radius": 750
+      },
+      {
+        "name": "Boquerón del Palmar",
+        "match": [
+          "Avenida Boqueron del Palmar",
+          "Avenida Boquerón del Palmar"
+        ],
+        "anchor": [
+          18.657,
+          -91.8008
+        ],
+        "radius": 1200
+      },
+      {
+        "name": "Carretera Carmen–Puerto Real",
+        "match": [
+          "Calle Carmen Puerto Real",
+          "Avenida Isla de Tris"
+        ],
+        "anchor": [
+          18.6515,
+          -91.7943
+        ],
+        "radius": 750
+      },
+      {
+        "name": "Calle Escárcega",
+        "match": [
+          "Calle Escárcega"
+        ],
+        "anchor": [
+          18.65,
+          -91.7929
+        ],
+        "radius": 550
+      },
+      {
+        "name": "Av. Puerto de Campeche",
+        "match": [
+          "Avenida Puerto de Campeche"
+        ],
+        "anchor": [
+          18.646,
+          -91.7853
+        ],
+        "radius": 1200
+      },
+      {
+        "name": "Av. Abasolo",
+        "match": [
+          "Calle Abasolo",
+          "Avenida Abasolo",
+          "Calle Laguna de Términos"
+        ],
+        "anchor": [
+          18.6378,
+          -91.778
+        ],
+        "radius": 650,
+        "continuationBox": [
+          18.6367,
+          -91.783,
+          18.639,
+          -91.7755
+        ]
+      },
+      {
+        "name": "Av. Contadores",
+        "match": [
+          "Avenida Contadores"
+        ],
+        "anchor": [
+          18.642,
+          -91.7775
+        ],
+        "radius": 750
+      },
+      {
+        "name": "Av. Central",
+        "match": [
+          "Avenida Central"
+        ],
+        "anchor": [
+          18.651,
+          -91.7745
+        ],
+        "radius": 1100
+      },
+      {
+        "name": "Campus III",
+        "point": [
+          18.655922,
+          -91.767936
+        ],
+        "match": [
+          "Avenida Central"
+        ],
+        "anchor": [
+          18.655922,
+          -91.767936
+        ],
+        "radius": 100
+      }
+    ],
+    "junctionHints": {
+      "5": [
+        18.6499873,
+        -91.7957713
+      ],
+      "6": [
+        18.6468,
+        -91.79297
+      ]
+    }
+  }
+}
